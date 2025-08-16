@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Samco Venture - Online Shopping</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f0f2f5;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: #004080;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .logo-container img {
+      height: 50px;
+      width: auto;
+      border-radius: 5px;
+      background: white;
+      padding: 5px;
+    }
+    .logo-container h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .logo-container p {
+      font-style: italic;
+      margin: 2px 0 0 0;
+      font-size: 0.9rem;
+      color: #cce0ff;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .navbar a:hover {
+      color: #ffcc00;
+    }
+    @media (max-width: 768px) {
+      .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    .hero-banner {
+      background-image: url('sam5.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 4px #000;
+      font-size: 2rem;
+    }
+
+    .advertisement-videos {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    .advertisement-videos h2 {
+      text-align: center;
+      color: #004080;
+      margin-bottom: 15px;
+    }
+    .videos-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .video-wrapper {
+      flex: 1 1 350px;
+      max-width: 400px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .video-wrapper iframe {
+      width: 100%;
+      height: 225px;
+      display: block;
+    }
+
+    .marquee {
+      background: #ff9800;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    #products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+    .product {
+      background: white;
+      padding: 10px;
+      margin: 10px;
+      width: 220px;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .product h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+    .product p {
+      margin: 5px 0;
+    }
+    button {
+      background: #004080;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      width: 100%;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #003060;
+    }
+
+    #cart,
+    #checkout {
+      background: white;
+      padding: 15px;
+      margin: 20px auto;
+      border-radius: 8px;
+      max-width: 800px;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th,
+    td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    td input {
+      width: 50px;
+      text-align: center;
+    }
+
+    #checkout input,
+    #checkout textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    footer {
+      background: #004080;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .contact-icons a {
+      margin: 0 10px;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .contact-icons a svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+      transition: fill 0.3s;
+    }
+    .contact-icons a:hover svg {
+      fill: #00aced;
+    }
+
+    @media (max-width: 600px) {
+      .product {
+        width: 90%;
+      }
+      .videos-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .video-wrapper {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <header>
+    <div class="logo-container">
+      <img src="samco.jpg" alt="Samco Venture Logo" />
+      <div>
+        <h1>Samco Venture</h1>
+        <p>Your trusted online store</p>
+      </div>
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#ads">Videos</a></li>
+        <li><a href="#cart">Cart</a></li>
+        <li><a href="#checkout">Checkout</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero-banner">🎉 Great Deals Await You at Samco Venture 🎉</div>
+  <div class="marquee">🔥 FREE delivery on orders over $50 | Buy 2 Get 1 Free 🔥</div>
+
+  <section class="advertisement-videos" id="ads">
+    <h2>Watch Our Latest Promotions</h2>
+    <div class="videos-container">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Promotional Video 1" allowfullscreen></iframe>
+      </div>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/3JZ_D3ELwOQ" title="Promotional Video 2" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <div id="products"></div>
+
+  <div id="cart">
+    <h2>Shopping Cart</h2>
+    <div id="cart-content"><p>Your cart is empty</p></div>
+  </div>
+
+  <div id="checkout">
+    <h2>Checkout</h2>
+    <form id="orderForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="tel" id="phone" placeholder="Phone Number" required />
+      <textarea id="address" rows="3" placeholder="Delivery Address" required></textarea>
+      <button type="submit">Place Order</button>
+      <p id="orderMessage" style="color: green; font-weight: bold; display:none;"></p>
+    </form>
+  </div>
+
+  <footer id="contact">
+    <section>
+        <h2>Contact Me</h2>
+        <div class="contact">
+            <p>Email: <a href="mailto:sakugo12@gmail.com">sakugo12@gmail.com</a></p>
+            <p>Phone: <a href="tel:+254796431147">+254 796 431 147</a></p>
+            <p>Location: Migori, Kenya</p>
+            <!-- Social Media Links in Contact -->
+            <div class="social-links">
+                <a href="https://twitter.com/YOURUSERNAME" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/YOURUSERNAME" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/YOURUSERNAME" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://wa.me/254796431147" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </section>
+ 
+  </footer>
+  <script>
+    const products = [
+      { id: 1, name: 'Wireless Headphones', price: 80, image: 'sam1.jpg' },
+      { id: 2, name: 'Smartwatch', price: 120, image: 'sam3.jpg' },
+      { id: 3, name: 'Bluetooth Speaker', price: 60, image: 'sam4.jpg' },
+      { id: 4, name: 'Fitness Tracker', price: 40, image: 'sam5.jpg' },
+      { id: 5, name: 'Power Bank', price: 25, image: 'sam6.jpg' }
+    ];
+
+    const cart = {};
+
+    function renderProducts() {
+      const productsDiv = document.getElementById('products');
+      productsDiv.innerHTML = '';
+      products.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.className = 'product';
+        productDiv.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" />
+          <h3>${product.name}</h3>
+          <p>Price: $${product.price}</p>
+          <button onclick="addToCart(${product.id})">Add to Cart</button>
+        `;
+        productsDiv.appendChild(productDiv);
+      });
+    }
+
+    function addToCart(productId) {
+      cart[productId] = (cart[productId] || 0) + 1;
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartContent = document.getElementById('cart-content');
+      if (Object.keys(cart).length === 0) {
+        cartContent.innerHTML = '<p>Your cart is empty</p>';
+        return;
+      }
+      let html = '<table><thead><tr><th>Product</th><th>Qty</th><th>Price</th><th>Subtotal</th><th>Action</th></tr></thead><tbody>';
+      let total = 0;
+      for (const id in cart) {
+        const product = products.find(p => p.id == id);
+        const qty = cart[id];
+        const subtotal = product.price * qty;
+        total += subtotal;
+        html += `
+          <tr>
+            <td>${product.name}</td>
+            <td><input type="number" min="1" value="${qty}" onchange="updateQuantity(${id}, this.value)" /></td>
+            <td>$${product.price}</td>
+            <td>$${subtotal.toFixed(2)}</td>
+            <td><button onclick="removeFromCart(${id})">Remove</button></td>
+          </tr>
+        `;
+      }
+      html += `</tbody><tfoot><tr><th colspan="3">Total</th><th>$${total.toFixed(2)}</th><th></th></tr></tfoot></table>`;
+      cartContent.innerHTML = html;
+    }
+
+    function updateQuantity(productId, qty) {
+      qty = parseInt(qty);
+      if (qty <= 0) removeFromCart(productId);
+      else {
+        cart[productId] = qty;
+        renderCart();
+      }
+    }
+
+    function removeFromCart(productId) {
+      delete cart[productId];
+      renderCart();
+    }
+
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (Object.keys(cart).length === 0) return alert('Cart is empty!');
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      if (!name || !phone || !address) return alert('Fill in all fields!');
+      document.getElementById('orderMessage').style.display = 'block';
+      document.getElementById('orderMessage').textContent = `Thanks, ${name}! Your order has been placed.`;
+      for (let id in cart) delete cart[id];
+      renderCart();
+      this.reset();
+    });
+
+    renderProducts();
+    renderCart();
+  </script>
+
+</body>
+</html>
